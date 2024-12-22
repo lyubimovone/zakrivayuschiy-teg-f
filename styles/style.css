@@ -37,6 +37,8 @@
 
 .card {
   inline-size: clamp(375px, 100vw, 700px);
+  background-color: #fff;
+  border: 2px solid #000;
 }
 
 .header__title {
@@ -66,12 +68,6 @@
   gap: 50px;
 }
 
-.card {
-  max-width: 700px;
-  background-color: #fff;
-  border: 2px solid #000;
-}
-
 .card__image {
   display: block;
   inline-size: 100%;
@@ -81,10 +77,11 @@
 }
 
 .card__title {
-  padding: 5px 10px;
+  padding: 6px 10px;
   font-family: var(--main-family);
   font-variation-settings: "wght" var(--font-weight-bold);
   font-size: 18px;
+  border-bottom: 2px solid #000;
 }
 
 .card__bottom {
@@ -92,6 +89,7 @@
   flex-direction: column;
   padding: 25px;
   gap: 25px;
+  border-top: 2px solid #000;
 }
 
 .card__button {
@@ -99,6 +97,24 @@
   justify-content: end;
   gap: 7px;
   cursor: pointer;
+}
+
+.card__icon-button {
+  display: grid;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  appearance: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.card__icon-button:focus {
+  outline: none;
+} 
+
+.card__icon-button:focus-visible {
+  border: 2px solid #000;
 }
 
 .card__description {
@@ -124,13 +140,13 @@
   color: #000;
   mix-blend-mode: hard-light;
   opacity: 0.5;
-  text-shadow: 0 0 1px #fff;
+  text-shadow: var(--label-shadow, -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff);
 }
 
-@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)  {
+@supports (-webkit-text-stroke: 1px var(--label-text-shadow)) or (text-stroke: 1px #fff)  {
   .card__image-label {
       text-shadow: none;
-      -webkit-text-stroke: 1px #fff;
+      -webkit-text-stroke: 1px var(--label-text-shadow, #fff);
       text-stroke: 1px #fff;
   }
 }
@@ -153,6 +169,10 @@
 }
 
 .card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
   box-shadow: 2px 2px 0 0 #000;
 }
 
@@ -175,6 +195,14 @@
   width: 335px;
   height: 55px;
   gap: 8px;
+}
+
+.button__save:focus {
+  outline: none;
+}
+
+.button__save:focus-visible {
+  box-shadow: 2px 2px 0 0 #000;
 }
 
 .button__save svg {
@@ -238,6 +266,14 @@
   height: 38px;
 }
 
+.modal__button:focus {
+  outline: none;
+}
+
+.modal__button:focus-visible {
+  box-shadow: 2px 2px 0 0 #000;
+}
+
 .modal__button-text {
   font-family: var(--accent-family);
   font-weight: var(--font-weight-normal);
@@ -298,7 +334,7 @@
     right: 11px;
   }
 
-  .modal {
-    overflow-x: hidden;
+  .modal__wrapper {
+    width: 100%;
   }
 }
