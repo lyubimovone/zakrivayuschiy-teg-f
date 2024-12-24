@@ -160,20 +160,15 @@
   background-color: #fff;
   justify-content: center;
   cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.card__like-button {
-  width: 130px;
-  height: 38px;
-  box-shadow: 0px 0px 0 0 #000;
-}
-
-.card__like-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
-  box-shadow: 2px 2px 0 0 #000;
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--text-color);
 }
 
 .button::before {
@@ -189,6 +184,20 @@
 
 .button:hover::before {
   transform: scaleX(1);
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  box-shadow: 0px 0px 0 0 #000;
+}
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 0 #000;
 }
 
 .button__save {
@@ -324,7 +333,6 @@
 @media (width <= 420px) {
   .card__description {
     gap: 27px;
-    width: 304px;
   }
 
   .button__save {
